@@ -1,0 +1,15 @@
+{
+    "name": "Zmiana magazynów",
+    "description": "Dodatek do zmiany magazynów.",
+    "version": "1.0",
+    "permissions": ["https://silverstork.pl/panel/orderd.php*"],
+    "manifest_version": 2,
+    "icons": {},
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [{
+        "matches": ["https://silverstork.pl/panel/orderd.php*"],
+        "js": ["js.js"]
+    }]
+}
