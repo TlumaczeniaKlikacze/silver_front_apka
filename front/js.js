@@ -33,17 +33,20 @@ const interval = setInterval(() => {
                 table_el[x].appendChild(el)
         }
         clearInterval(interval)
-          if(document.getElementsByClassName("yui-dt0-col-quantity yui-dt-col-quantity")){
-            const allMs = document.getElementsByClassName("yui-dt0-col-quantity yui-dt-col-quantity")
-            for(let z =0;z<allMs.length;z++){
-                if ((new RegExp('M0')).test(allMs[z].innerText))
-                  allMs[z].style.backgroundColor = 'rgba(46, 179, 138, 0.2)'
-                if((new RegExp('M1')).test(allMs[z].innerText))
-                    allMs[z].style.backgroundColor = 'rgba(198, 179, 138, 0.2)'
-                if((new RegExp('M1')).test(allMs[z].innerText) && (new RegExp('M0')).test(allMs[z].innerText))
-                     allMs[z].style.backgroundColor ='rgba(198, 179, 26, 0.2)'
-            } 
-        }
+           const inner_inteval = setInterval(() => {
+            if(document.getElementsByClassName("yui-dt0-col-quantity yui-dt-col-quantity")){
+                clearInterval(inner_inteval)
+                const allMs = document.getElementsByClassName("yui-dt0-col-quantity yui-dt-col-quantity")
+                for(let z =0;z<allMs.length;z++){
+                    if ((new RegExp('M0')).test(allMs[z].innerText))
+                      allMs[z].style.backgroundColor = 'rgba(46, 179, 138, 0.2)'
+                    if((new RegExp('M1')).test(allMs[z].innerText))
+                        allMs[z].style.backgroundColor = 'rgba(198, 179, 138, 0.2)'
+                    if((new RegExp('M1')).test(allMs[z].innerText) && (new RegExp('M0')).test(allMs[z].innerText))
+                         allMs[z].style.backgroundColor ='rgba(198, 179, 26, 0.2)'
+                } 
+            }
+        }, 500);
         for(let j=0;j<buttons_silver_custom.length;j++){
             document.getElementById(buttons_silver_custom[j].id).addEventListener('click',function(){
                 this.disabled=true
